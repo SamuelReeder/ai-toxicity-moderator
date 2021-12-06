@@ -1,0 +1,28 @@
+{
+  "name": "ai-toxicity-moderator",
+  "version": "1.0.0",
+  "description": "A discord bot using TensorFlow machine learning to detect user toxicity.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon dl.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelReeder/ai-toxicity-moderator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamuelReeder/ai-toxicity-moderator/issues"
+  },
+  "homepage": "https://github.com/SamuelReeder/ai-toxicity-moderator#readme",
+  "dependencies": {
+    "@tensorflow-models/toxicity": "1.2.2",
+    "@tensorflow/tfjs": "^3.11.0",
+    "@tensorflow/tfjs-node": "^3.11.0",
+    "discord.js": "^12.5.3",
+    "nodemon": "^2.0.15"
+  }
+}
