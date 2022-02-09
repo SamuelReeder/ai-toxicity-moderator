@@ -25,9 +25,6 @@ client.on('message', async message => {
                 title: 'Toxicity Report',
                 fields: [],
                 timestamp: new Date(),
-                footer: {
-                    text: 'Made by Samuel R with TensorFlow'
-                }
             };
 
             let toxic = false;
@@ -35,12 +32,12 @@ client.on('message', async message => {
             predictions.forEach(e => {
                 if (e.results[0].match) {
                     toxic = true;
+                    embed.fields.push({
+                        name: e.label,
+                        value: `${e.results[0].match} with ${e.results[0].match ? Math.round(e.results[0].probabilities[1] * 100) : Math.round(e.results[0].probabilities[0] * 100)}% certainty`,
+                        inline: true
+                    })
                 }
-                embed.fields.push({
-                    name: e.label,
-                    value: `${e.results[0].match} with ${e.results[0].match ? Math.round(e.results[0].probabilities[1] * 100) : Math.round(e.results[0].probabilities[0] * 100)}% certainty`,
-                    inline: true
-                })
             });
             if (toxic) {
                 message.channel.send({embed: embed});
@@ -49,4 +46,4 @@ client.on('message', async message => {
     });
 });
 
-client.login(/* TOKEN */);
+client.login();
